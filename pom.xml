@@ -15,7 +15,7 @@
       <url>http://localhost:8081/repository/SampleNexusProject/</url>
     </repository>
     <snapshotRepository>
-      <id>snapshots</id>
+      <id>SampleNexusProjectSnapshot</id>
       <name>snapshots</name>
       <url>http://localhost:8081/repository/SampleNexusProjectSnapshot/</url>
     </snapshotRepository>
