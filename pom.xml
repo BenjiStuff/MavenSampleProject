@@ -14,6 +14,11 @@
       <name>Internal Releases</name>
       <url>http://localhost:8081/repository/SampleNexusProject/</url>
     </repository>
+    <snapshotRepository>
+      <id>snapshots</id>
+      <name>snapshots</name>
+      <url>http://localhost:8081/repository/SampleNexusProjectSnapshot/</url>
+    </snapshotRepository>
   </distributionManagement>
 
   <dependencies>
