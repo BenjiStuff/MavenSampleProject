@@ -19,7 +19,7 @@ node {
 
 		stage('Build/Test') {
 			//utils.mvn "clean install"
-			bat(/"${mvnHome}\bin\mvn" clean install/)
+			bat 'mvn clean install'
 		}
 
 		stage('QA Javadoc') {
