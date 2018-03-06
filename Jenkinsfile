@@ -19,7 +19,7 @@ node {
 
 		stage('Build/Test') {
 			//utils.mvn "clean install"
-			bat 'cd ./my-app'
+			bat 'cd .\\my-app'
 			bat 'mvn clean install'
 		}
 
