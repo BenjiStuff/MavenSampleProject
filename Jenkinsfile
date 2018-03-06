@@ -67,6 +67,10 @@ if (env.BRANCH_NAME == 'master') {
 		stage("Prepare for release") {
 			echo "Testing this feature"
 		}
+
+		stage("Deploy to nexus") {
+			bat 'mvn clean deploy'
+		}
 	}
 
 }
