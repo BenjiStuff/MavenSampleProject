@@ -78,7 +78,7 @@ if (env.BRANCH_NAME == 'master') {
 			releaseNumber = release.get_version_from_pom "pom.xml"
 
 			//release.deploy(releaseNumber, "snapshots")
-			release.deploy(releaseNumber, "deployment")
+			release.deploy(releaseNumber, "SampleNexusProject")
 		}
 	}
 }
