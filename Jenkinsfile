@@ -6,7 +6,7 @@ def release = new Release(steps, env, currentBuild)
 
 echo "Executing build on branch ${env.BRANCH_NAME}"
 
-def gitRepo = 'asm_test'
+//def gitRepo = 'asm_test'
 
 node {
 	try {
