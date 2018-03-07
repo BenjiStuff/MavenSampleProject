@@ -77,7 +77,8 @@ if (env.BRANCH_NAME == 'master') {
 			//bat 'mvn clean deploy'
 			releaseNumber = release.get_version_from_pom "pom.xml"
 
-			release.deploy(releaseNumber, "snapshots")
+			//release.deploy(releaseNumber, "snapshots")
+			release.deploy(releaseNumber, "deployment")
 		}
 	}
 }
