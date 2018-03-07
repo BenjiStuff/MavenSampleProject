@@ -96,6 +96,7 @@ if (env.BRANCH_NAME == 'master') {
 
         	echo "packaging ${groupId}:${artifactId}:${releaseNumber}:${packaging}"
 			releaseNumber = release.get_version_from_pom "pom.xml"
+			echo releaseNumber
 		}
 	}
 }
