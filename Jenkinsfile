@@ -74,8 +74,29 @@ if (env.BRANCH_NAME == 'master') {
 
 		stage("Deploy to nexus") {
 			//bat 'mvn clean deploy'
+			def pom = read_pom "${folder}pom.xml"
+        	def modules = pom.modules
+        	def groupId = pom.groupId
+        	def packaging = pom.packaging
+        	def artifactId = pom.artifactId
+        	if (groupId == null || groupId.empty) {
+            	groupId = pom.parent.groupId
+        	}
+        	if (packaging == null || packaging.empty) {
+            	packaging = "jar"
+        	}
 
+			def pom2 = read_pom "pom.xml"
+        	String version = pom2.version
+        	String releaseNumber;
+        	if (strip_snap_shot && version.endsWith("-SNAPSHOT")) {
+        	    releaseNumber = version.substring(0, version.length() - 9)
+        	} else {
+        	    releaseNumber = version
+        	}
+
+        	echo "packaging ${groupId}:${artifactId}:${releaseNumber}:${packaging}"
+			echo modules
 		}
 	}
-
 }
