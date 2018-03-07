@@ -75,7 +75,7 @@ if (env.BRANCH_NAME == 'master') {
 		stage("Deploy to nexus") {
 			//bat 'mvn clean deploy'
 			def folder = ''
-			def pom = read_pom "${folder}pom.xml"
+			def pom = steps.readMavenPom(file: "pom.xml")
         	def modules = pom.modules
         	def groupId = pom.groupId
         	def packaging = pom.packaging
