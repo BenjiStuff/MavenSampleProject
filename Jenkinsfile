@@ -69,7 +69,7 @@ if (env.BRANCH_NAME == 'master') {
 		}
 
 		stage("Create release") {
-			bat 'mvn clean install'
+			utils.mvn 'clean install'
 		}
 
 		stage("Deploy to nexus") {
@@ -77,7 +77,6 @@ if (env.BRANCH_NAME == 'master') {
 			releaseNumber = release.get_version_from_pom "pom.xml"
 
 			release.deploy(releaseNumber, "snapshots")
-
 		}
 	}
 }
