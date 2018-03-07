@@ -1,8 +1,6 @@
-@Library('gx-shared-lib')
-import com.gxsoftware.jenkins.Release
-import com.gxsoftware.jenkins.Utilities
+import com.mycompany.app.Release
 
-def utils = new Utilities(steps, env, currentBuild)
+//def utils = new Utilities(steps, env, currentBuild)
 def release = new Release(steps, env, currentBuild)
 
 echo "Executing build on branch ${env.BRANCH_NAME}"
@@ -95,6 +93,7 @@ if (env.BRANCH_NAME == 'master') {
         	}
 
         	echo "packaging ${groupId}:${artifactId}:${releaseNumber}:${packaging}"
+			releaseNumber = release.get_version_from_pom "pom.xml"
 		}
 	}
 }
