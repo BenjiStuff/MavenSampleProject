@@ -76,6 +76,7 @@ if (env.BRANCH_NAME == 'master') {
 		stage("Deploy to nexus") {
 			//bat 'mvn clean deploy'
 			releaseNumber = release.get_version_from_pom "pom.xml"
+			release.updatePomWithVersion(releaseNumber)
 
 			//release.deploy(releaseNumber, "snapshots")
 			release.deploy(releaseNumber, "SampleNexusProject")
