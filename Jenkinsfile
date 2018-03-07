@@ -1,4 +1,4 @@
-import com.mycompany.app.Release
+import com.mycompany.Release
 
 //def utils = new Utilities(steps, env, currentBuild)
 def release = new Release(steps, env, currentBuild)
