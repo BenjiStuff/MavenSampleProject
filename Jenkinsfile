@@ -69,6 +69,8 @@ if (env.BRANCH_NAME == 'master') {
 		}
 
 		stage("Deploy to nexus") {
+			echo "Read pom"
+			echo readFile('pom.xml')
 			bat 'mvn clean deploy'
 		}
 	}
