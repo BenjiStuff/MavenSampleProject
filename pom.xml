@@ -12,12 +12,14 @@
     <repository>
       <id>deployment</id>
       <name>Internal Releases</name>
-      <url>http://localhost:8081/repository/SampleNexusProject/</url>
+      <!-- <url>http://localhost:8081/repository/SampleNexusProject/</url> -->
+      <url>http://localhost:8081/nexus/content/repositories/SampleNexusProject/</url>
     </repository>
     <snapshotRepository>
       <id>snapshots</id>
       <name>snapshots</name>
-      <url>http://localhost:8081/repository/SampleNexusProjectSnapshot/</url>
+      <!-- <url>http://localhost:8081/repository/SampleNexusProjectSnapshot/</url> -->
+      <url>http://localhost:8081/nexus/content/repositories/SampleNexusProjectSnapshot/</url>
     </snapshotRepository>
   </distributionManagement>
 

@@ -69,6 +69,7 @@ if (env.BRANCH_NAME == 'master') {
 		}
 
 		stage("Create release") {
+			echo "Creating release"
 			utils.mvn 'clean install'
 		}
 
