@@ -1,7 +1,7 @@
 @Library('SomeRandomLib')
 import com.mycompany.jenkins.Release
 
-//def utils = new Utilities(steps, env, currentBuild)
+def utils = new Utilities(steps, env, currentBuild)
 def release = new Release(steps, env, currentBuild)
 
 echo "Executing build on branch ${env.BRANCH_NAME}"
