@@ -1,3 +1,4 @@
+@Library('SomeRandomLib')
 import com.mycompany.Release
 
 //def utils = new Utilities(steps, env, currentBuild)
