@@ -88,7 +88,7 @@ if (env.BRANCH_NAME == 'master') {
         	}
 
         	String version = pom.version
-        	if (strip_snap_shot && version.endsWith("-SNAPSHOT")) {
+        	if (version.endsWith("-SNAPSHOT")) {
         	    releaseNumber = version.substring(0, version.length() - 9)
         	} else {
         	    releaseNumber = version
