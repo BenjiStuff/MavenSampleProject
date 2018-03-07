@@ -1,5 +1,6 @@
 @Library('SomeRandomLib')
 import com.mycompany.jenkins.Release
+import com.mycompany.jenkins.Utilities
 
 def utils = new Utilities(steps, env, currentBuild)
 def release = new Release(steps, env, currentBuild)
