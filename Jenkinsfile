@@ -88,7 +88,6 @@ if (env.BRANCH_NAME == 'master') {
 
 			def pom2 = read_pom "pom.xml"
         	String version = pom2.version
-        	String releaseNumber;
         	if (strip_snap_shot && version.endsWith("-SNAPSHOT")) {
         	    releaseNumber = version.substring(0, version.length() - 9)
         	} else {
