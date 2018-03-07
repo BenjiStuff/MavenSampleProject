@@ -95,7 +95,6 @@ if (env.BRANCH_NAME == 'master') {
         	}
 
         	echo "packaging ${groupId}:${artifactId}:${releaseNumber}:${packaging}"
-			echo modules
 		}
 	}
 }
