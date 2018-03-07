@@ -74,29 +74,10 @@ if (env.BRANCH_NAME == 'master') {
 
 		stage("Deploy to nexus") {
 			//bat 'mvn clean deploy'
-			def folder = ''
-			def pom = steps.readMavenPom(file: "pom.xml")
-        	def modules = pom.modules
-        	def groupId = pom.groupId
-        	def packaging = pom.packaging
-        	def artifactId = pom.artifactId
-        	if (groupId == null || groupId.empty) {
-            	groupId = pom.parent.groupId
-        	}
-        	if (packaging == null || packaging.empty) {
-            	packaging = "jar"
-        	}
+			releaseNumber = get_version_from_pom "pom.xml"
 
-        	String version = pom.version
-        	if (version.endsWith("-SNAPSHOT")) {
-        	    releaseNumber = version.substring(0, version.length() - 9)
-        	} else {
-        	    releaseNumber = version
-        	}
+			release.deploy(releaseNumber, "snapshots")
 
-        	echo "packaging ${groupId}:${artifactId}:${releaseNumber}:${packaging}"
-			releaseNumber = release.get_version_from_pom "pom.xml"
-			echo releaseNumber
 		}
 	}
 }
