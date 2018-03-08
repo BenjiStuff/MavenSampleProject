@@ -18,8 +18,7 @@ node {
 		}
 
 		stage('Build/Test') {
-			//utils.mvn "clean install"
-			bat 'mvn clean install'
+			utils.mvn "clean install"
 		}
 
 		stage('QA Javadoc') {
@@ -27,11 +26,26 @@ node {
 		}
 
 		stage('QA Sonar') {
-			//utils.sonar()
+			withSonarQubeEnv('My SonarQube Server') {
+                utils.sonar()
+            }
 		}
+
+		stage("Quality Gate") {
+            timeout(time: 1, unit: 'HOURS') {
+                def qg = waitForQualityGate()
+                if (qg.status != 'OK') {
+                    error "Pipeline aborted due to quality gate failure: ${qg.status}"
+                }
+                else {
+                    echo "SUCCES!. Status is: ${qg.status}"
+                }
+            }
+        }
 
 	} catch (error) {
 		stage('Mail') {
+			echo "Something went wrong, see ${env.BUILD_URL}"
 /* 			def to = emailextrecipients([
 							[$class: 'CulpritsRecipientProvider'],
 							[$class: 'DevelopersRecipientProvider'],
@@ -58,7 +72,9 @@ if (env.BRANCH_NAME == 'develop') {
 		}
 	}
 }
+
 if (env.BRANCH_NAME == 'master') {
+	//BRANCH_NAME zou release moeten zijn?
 	def releaseNumber
 	def releaseTag
 	def developmentVersion
