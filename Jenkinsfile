@@ -28,7 +28,7 @@ node {
 		stage('QA Sonar') {
 			withSonarQubeEnv('My SonarQube Server') {
                 //utils.sonar()
-				bat 'mvn clean package sonar:sonar'
+				bat 'mvn clean package sonar:sonar' //Prefer to use utils.sonar()
             }
 		}
 
@@ -39,7 +39,7 @@ node {
                     error "Pipeline aborted due to quality gate failure: ${qg.status}"
                 }
                 else {
-                    echo "SUCCES! Status is: ${qg.status}"
+                    echo "SUCCES! SonarQube status is: ${qg.status}"
                 }
             }
         }
@@ -92,11 +92,11 @@ if (env.BRANCH_NAME == 'master') {
 
 		stage("Deploy to nexus") {
 			//bat 'mvn clean deploy'
-			releaseNumber = release.get_version_from_pom "pom.xml"
-			release.updatePomWithVersion(releaseNumber)
+			//releaseNumber = release.get_version_from_pom "pom.xml"
+			//release.updatePomWithVersion(releaseNumber)
 
 			//release.deploy(releaseNumber, "snapshots")
-			release.deploy(releaseNumber, "SampleNexusProject")
+			//release.deploy(releaseNumber, "SampleNexusProject")
 		}
 	}
 }
