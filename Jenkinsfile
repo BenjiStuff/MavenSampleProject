@@ -28,7 +28,7 @@ node {
 		stage('QA Sonar') {
 			withSonarQubeEnv('My SonarQube Server') {
                 //utils.sonar()
-				bat 'mvn clean package sonar:sonar' //Prefer to use utils.sonar()
+				bat 'mvn clean package sonar:sonar -Dgib.buildAll=true' //Prefer to use utils.sonar() //Use -Dgib.buildAll=true to build and scan the whole project
             }
 		}
 
