@@ -27,7 +27,8 @@ node {
 
 		stage('QA Sonar') {
 			withSonarQubeEnv('My SonarQube Server') {
-                utils.sonar()
+                //utils.sonar()
+				bat 'mvn clean package sonar:sonar'
             }
 		}
 
@@ -38,7 +39,7 @@ node {
                     error "Pipeline aborted due to quality gate failure: ${qg.status}"
                 }
                 else {
-                    echo "SUCCES!. Status is: ${qg.status}"
+                    echo "SUCCES! Status is: ${qg.status}"
                 }
             }
         }
