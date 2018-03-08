@@ -81,8 +81,21 @@ if (env.BRANCH_NAME == 'master') {
 	def developmentVersion
 
 	node {
+		stage("initializing release") {
+			deleteDir();
+			checkout scm;
+		}
+
 		stage("Prepare for release") {
-			echo "Testing this feature"
+			releaseNumber = release.get_version_from_pom "pom.xml"
+			echo releaseNumber
+			releaseTag = release.create_release_tag "pom.xml", releaseNumber
+			echo "generated releaseTag: ${releaseTag}"
+
+			release.updatePomWithVersion(releaseNumber)
+
+			echo '==== versioned POM ===='
+			echo readFile('pom.xml')
 		}
 
 		stage("Create release") {

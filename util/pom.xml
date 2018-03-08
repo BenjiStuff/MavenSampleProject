@@ -5,7 +5,8 @@
     <parent>
         <groupId>com.mycompany.app</groupId>
         <artifactId>simple-multi</artifactId>
-        <version>1.0-SNAPSHOT</version>
+        <!-- <version>1.0-SNAPSHOT</version> -->
+        <version>3.1.0</version>
     </parent>
     <artifactId>util</artifactId>
     <name>Simple Util</name>
