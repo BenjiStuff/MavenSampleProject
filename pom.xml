@@ -30,7 +30,8 @@
     </modules>
 
     <properties>
-	    <gib.enabled>false</gib.enabled>
+        <!-- Git Incremental Builder disabled by default so that maven works as normal. Use '-Dgib.enabled=true' to use GIB -->
+	    <gib.enabled>false</gib.enabled> 
     	<gib.repositorySshKey></gib.repositorySshKey>
 	    <gib.referenceBranch>refs/remotes/origin/develop</gib.referenceBranch>
 	    <gib.baseBranch>HEAD</gib.baseBranch>

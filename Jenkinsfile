@@ -106,7 +106,7 @@ if (env.BRANCH_NAME == 'master') {
 	}
 
 	node {
-		stage("verification") {
+		stage("Verification") {
 			
 		}
 	}
