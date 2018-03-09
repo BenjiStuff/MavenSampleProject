@@ -117,13 +117,12 @@ if (env.BRANCH_NAME == 'master') {
 		}
 
 		stage("Deploy Release") {
-			when {
-				expression { deployFullRelease == true } // '== true' just for clarification that this is similar to a IF statement
+			if (deployFullRelease) {
+				echo "Deploying FULL release"
 			}
-			steps {
-				echo "We're in when statement"
+			else {
+				echo "Only deploying changed artifacts"
 			}
-
 		}
 
 		stage("Tag git") {
