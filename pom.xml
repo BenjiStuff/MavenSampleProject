@@ -35,6 +35,21 @@
                 <groupId>com.vackosar.gitflowincrementalbuilder</groupId>
                 <artifactId>gitflow-incremental-builder</artifactId>
                 <version>3.4</version>
+                <properties>
+	<gib.enabled>false</gib.enabled>
+	<gib.repositorySshKey></gib.repositorySshKey>
+	<gib.referenceBranch>refs/remotes/origin/develop</gib.referenceBranch>
+	<gib.baseBranch>HEAD</gib.baseBranch>
+	<gib.uncommited>true</gib.uncommited>
+	<gib.skipTestsForNotImpactedModules>false</gib.skipTestsForNotImpactedModules>
+	<gib.buildAll>false</gib.buildAll>
+	<gib.compareToMergeBase>true</gib.compareToMergeBase>
+	<gib.fetchBaseBranch>false</gib.fetchBaseBranch>
+	<gib.fetchReferenceBranch>false</gib.fetchReferenceBranch>
+	<gib.excludePathRegex>(?!x)x</gib.excludePathRegex>
+	<gib.failOnMissingGitDir>true</gib.failOnMissingGitDir>
+	<gib.failOnError>true</gib.failOnError>
+</properties>
             </extension>
         </extensions>
     </build>

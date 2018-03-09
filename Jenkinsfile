@@ -79,7 +79,7 @@ if (env.BRANCH_NAME == 'master') {
 	def releaseNumber
 	def releaseTag
 	def developmentVersion
-	def deployFullRelease = true;
+	def deployFullRelease = false; //Simulating user input
 
 	node {
 		stage("initializing release") {
