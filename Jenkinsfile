@@ -79,6 +79,7 @@ if (env.BRANCH_NAME == 'master') {
 	def releaseNumber
 	def releaseTag
 	def developmentVersion
+	def deployFullRelease = true;
 
 	node {
 		stage("initializing release") {
@@ -102,14 +103,50 @@ if (env.BRANCH_NAME == 'master') {
 			echo "Creating release"
 			utils.mvn 'clean install'
 		}
+	}
 
-		stage("Deploy to nexus") {
+	node {
+		stage("verification") {
+			
+		}
+	}
+
+	node {
+		stage("Prepare Deploy and tag") {
+			
+		}
+
+		stage("Deploy Release") {
+			when {
+				expression { deployFullRelease == true } // '== true' just for clarification that this is similar to a IF statement
+			}
+			steps {
+				echo "We're in when statement"
+			}
+
+		}
+
+		stage("Tag git") {
+
+		}
+
+		stage("Push Git") {
+
+		}
+
+		stage("Document Release") {
+
+		}
+
+
+
+/* 		stage("Deploy to nexus") {
 			//bat 'mvn clean deploy'
 			//releaseNumber = release.get_version_from_pom "pom.xml"
 			//release.updatePomWithVersion(releaseNumber)
 
 			//release.deploy(releaseNumber, "snapshots")
 			//release.deploy(releaseNumber, "SampleNexusProject")
-		}
+		} */
 	}
 }
