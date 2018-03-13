@@ -13,12 +13,12 @@ node {
 	try {
 		
 		stage(name: "Initializing ${env.BRANCH_NAME}") {
-			deleteDir();
+			//deleteDir();
 			checkout scm;
 		}
 
 		stage('Build/Test') {
-			utils.mvn "clean install"
+			utils.mvn "install" 
 		}
 
 		stage('QA Javadoc') {
@@ -83,12 +83,12 @@ if (env.BRANCH_NAME == 'master') {
 
 	node {
 		stage("initializing release") {
-			deleteDir();
-			checkout scm;
+/* 			deleteDir();
+			checkout scm; */
 		}
 
 		stage("Prepare for release") {
-			releaseNumber = release.get_version_from_pom "pom.xml"
+/* 			releaseNumber = release.get_version_from_pom "pom.xml"
 			echo releaseNumber
 			releaseTag = release.create_release_tag "pom.xml", releaseNumber
 			echo "generated releaseTag: ${releaseTag}"
@@ -96,12 +96,12 @@ if (env.BRANCH_NAME == 'master') {
 			release.updatePomWithVersion(releaseNumber)
 
 			echo '==== versioned POM ===='
-			echo readFile('pom.xml')
+			echo readFile('pom.xml') */
 		}
 
 		stage("Create release") {
-			echo "Creating release"
-			utils.mvn 'clean install'
+/* 			echo "Creating release"
+			utils.mvn 'clean install' */
 		}
 	}
 
