@@ -18,7 +18,7 @@ node {
 		}
 
 		stage('Build/Test') {
-			utils.mvn "clean install" 
+			utils.mvn "clean install -Dgib.enabled=true" 
 		}
 
 		stage('QA Javadoc') {
