@@ -18,7 +18,7 @@ node {
 		}
 
 		stage('Build/Test') {
-			utils.mvn "install" 
+			utils.mvn "clean install" 
 		}
 
 		stage('QA Javadoc') {
@@ -26,14 +26,14 @@ node {
 		}
 
 		stage('QA Sonar') {
-/* 			withSonarQubeEnv('My SonarQube Server') {
+			withSonarQubeEnv('My SonarQube Server') {
                 //utils.sonar()
-				bat 'mvn clean package sonar:sonar -Dgib.buildAll=true' //Prefer to use utils.sonar() //Use -Dgib.buildAll=true to build and scan the whole project
-            } */
+				bat 'mvn sonar:sonar'
+            }
 		}
 
 		stage("Quality Gate") {
-/*             timeout(time: 1, unit: 'HOURS') {
+            timeout(time: 1, unit: 'HOURS') {
                 def qg = waitForQualityGate()
                 if (qg.status != 'OK') {
                     error "Pipeline aborted due to quality gate failure: ${qg.status}"
@@ -41,7 +41,7 @@ node {
                 else {
                     echo "SUCCES! SonarQube status is: ${qg.status}"
                 }
-            } */
+            }
         }
 
 	} catch (error) {
