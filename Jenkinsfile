@@ -83,8 +83,8 @@ if (env.BRANCH_NAME == 'master') {
 
 	node {
 		stage("initializing release") {
-			deleteDir();
-			checkout scm;
+/* 			deleteDir();
+			checkout scm; */
 		}
 
 		stage("Prepare for release") {
