@@ -5,16 +5,11 @@
     <parent>
         <groupId>com.mycompany.app</groupId>
         <artifactId>simple-multi</artifactId>
-        <!-- <version>1.0-SNAPSHOT</version> -->
-        <version>1.0.1</version>
+        <version>1.0-SNAPSHOT</version>
     </parent>
     <artifactId>util</artifactId>
     <name>Simple Util</name>
-    <version>3.0.7</version>
-
-    <properties>
-        <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
-    </properties>
+    <version>3.0.3</version>
 
     <dependencies>
         <dependency>

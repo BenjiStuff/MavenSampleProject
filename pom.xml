@@ -4,8 +4,7 @@
 
     <groupId>com.mycompany.app</groupId>
     <artifactId>simple-multi</artifactId>
-    <!--<version>1.0-SNAPSHOT</version>-->
-    <version>1.0.1</version>
+    <version>1.0-SNAPSHOT
     <packaging>pom</packaging>
     <name>Maven Simple Multi Module Example</name>
 
@@ -30,6 +29,8 @@
     </modules>
 
     <properties>
+      <revision>1.0.0-SNAPSHOT</revision>
+
         <!-- Git Incremental Builder disabled by default so that maven works as normal. Use '-Dgib.enabled=true' to use GIB -->
 	    <gib.enabled>false</gib.enabled> 
     	<gib.repositorySshKey></gib.repositorySshKey>
