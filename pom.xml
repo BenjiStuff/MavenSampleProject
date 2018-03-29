@@ -4,7 +4,7 @@
 
     <groupId>com.mycompany.app</groupId>
     <artifactId>simple-multi</artifactId>
-    <version>1.0-SNAPSHOT
+    <version>1.0-SNAPSHOT</version>
     <packaging>pom</packaging>
     <name>Maven Simple Multi Module Example</name>
 
